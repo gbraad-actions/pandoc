@@ -1,0 +1,23 @@
+name: 'Pandoc Document Converter'
+description: 'Convert documents using Pandoc'
+inputs:
+  source:
+    description: 'Source file(s) to convert (glob patterns supported)'
+    required: true
+  output-format:
+    description: 'Target format (pdf, docx, html, etc.)'
+    required: true
+    default: 'pdf'
+  output-dir:
+    description: 'Directory where converted files should be placed'
+    required: false
+    default: 'output'
+  template:
+    description: 'Optional template file'
+    required: false
+  extra-args:
+    description: 'Additional pandoc arguments'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Containerfile'
