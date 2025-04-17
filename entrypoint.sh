@@ -2,19 +2,14 @@
 set -e
 
 # Get inputs from environment variables
-SOURCE_PATTERN="${INPUT_SOURCE}"
-OUTPUT_FORMAT="${INPUT_OUTPUT_FORMAT}"
-OUTPUT_DIR="${INPUT_OUTPUT_DIR}"
-TEMPLATE="${INPUT_TEMPLATE}"
-EXTRA_ARGS="${INPUT_EXTRA_ARGS}"
 
-# Debug information
-echo "Debug info:"
-echo "- Source pattern: ${SOURCE_PATTERN}"
-echo "- Output format: ${OUTPUT_FORMAT}"
-echo "- Output directory: ${OUTPUT_DIR}"
-echo "- Template: ${TEMPLATE}"
-echo "- Extra arguments: ${EXTRA_ARGS}"
+# For hyphenated input names, GitHub should convert hyphens to underscores
+# i.e. "output-format" becomes INPUT_OUTPUT_FORMAT. Which does not seem to happen
+SOURCE_PATTERN="${INPUT_SOURCE}"
+OUTPUT_FORMAT="${INPUT_OUTPUT-FORMAT}"
+OUTPUT_DIR="${INPUT_OUTPUT-DIR}"
+TEMPLATE="${INPUT_TEMPLATE}"
+EXTRA_ARGS="${INPUT_EXTRA-ARGS}"
 
 # Create output directory if it doesn't exist
 mkdir -p "${OUTPUT_DIR}"
