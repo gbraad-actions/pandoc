@@ -30,7 +30,7 @@ export_env_var() {
 }
 
 # Extract our variables properly
-export_env_var "OUTPUT-FORMAT" "OUTPUT_FORMAT" || OUTPUT_FORMAT="pdf"
+export_env_var "OUTPUT-FORMAT" "OUTPUT_FORMAT" || OUTPUT_FORMAT="html"
 export_env_var "OUTPUT-DIR" "OUTPUT_DIR" || OUTPUT_DIR="output"
 export_env_var "TEMPLATE" "TEMPLATE" || TEMPLATE=""
 export_env_var "EXTRA-ARGS" "EXTRA_ARGS" || EXTRA_ARGS=""

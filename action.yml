@@ -7,7 +7,7 @@ inputs:
   output-format:
     description: 'Target format (pdf, docx, html, etc.)'
     required: true
-    default: 'pdf'
+    default: 'html'
   output-dir:
     description: 'Directory where converted files should be placed'
     required: false
