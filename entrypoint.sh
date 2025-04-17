@@ -8,6 +8,14 @@ OUTPUT_DIR="${INPUT_OUTPUT_DIR}"
 TEMPLATE="${INPUT_TEMPLATE}"
 EXTRA_ARGS="${INPUT_EXTRA_ARGS}"
 
+# Debug information
+echo "Debug info:"
+echo "- Source pattern: ${SOURCE_PATTERN}"
+echo "- Output format: ${OUTPUT_FORMAT}"
+echo "- Output directory: ${OUTPUT_DIR}"
+echo "- Template: ${TEMPLATE}"
+echo "- Extra arguments: ${EXTRA_ARGS}"
+
 # Create output directory if it doesn't exist
 mkdir -p "${OUTPUT_DIR}"
 
