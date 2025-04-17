@@ -20,4 +20,4 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'Containerfile'
+  image: 'Dockerfile'
