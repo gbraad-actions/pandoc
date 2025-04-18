@@ -1,5 +1,5 @@
-Pandoc Document Converter
-=========================
+Pandoc Converter
+================
 
 Convert documents using Pandoc.
 Currently, mostly 'just a test'.
