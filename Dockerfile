@@ -1,3 +1,3 @@
-FROM pandoc/core:3.1.1
+FROM pandoc/latex:latest
 
 RUN apk add --no-cache bash
