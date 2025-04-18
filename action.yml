@@ -20,7 +20,7 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://pandoc/latex:latest'
   entrypoint: '/bin/bash'
   args:
     - '-c'
