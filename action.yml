@@ -21,3 +21,35 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  entrypoint: '/bin/bash'
+  args:
+    - '-c'
+    - |
+      set -e
+      
+      # Create output directory if it doesn't exist
+      mkdir -p "${{ inputs.output-dir }}"
+      
+      # Process template option
+      TEMPLATE_ARG=""
+      if [ -n "${{ inputs.template }}" ]; then
+        TEMPLATE_ARG="--template=${{ inputs.template }}"
+      fi
+      
+      # Find and process all source files
+      for source_file in ${{ inputs.source }}; do
+        if [ -f "$source_file" ]; then
+          filename=$(basename -- "$source_file")
+          extension="${filename##*.}"
+          filename="${filename%.*}"
+          
+          output_file="${{ inputs.output-dir }}/${filename}.${{ inputs.output-format }}"
+          
+          echo "Converting $source_file to $output_file"
+          
+          # Execute pandoc with the specified options
+          pandoc "$source_file" -o "$output_file" $TEMPLATE_ARG ${{ inputs.extra-args }}
+          
+          echo "Conversion complete: $output_file"
+        fi
+      done
